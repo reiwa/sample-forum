@@ -1,12 +1,20 @@
-import React, { Component, Fragment } from 'react'
+import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import React, { Component } from 'react'
+import JssProvider from 'react-jss/lib/JssProvider'
 import AppRouter from './AppRouter'
+import { generateClassName } from './helpers/generateClassName'
+import { muiTheme } from './helpers/muiTheme'
 
 class App extends Component {
   render() {
     return (
-      <Fragment>
-        <AppRouter />
-      </Fragment>
+      <JssProvider generateClassName={generateClassName}>
+        <MuiThemeProvider theme={muiTheme}>
+          <CssBaseline />
+          <AppRouter />
+        </MuiThemeProvider>
+      </JssProvider>
     )
   }
 }

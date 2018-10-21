@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Threads extends Component {
+class NotFoundPage extends Component {
   render() {
     const { match } = this.props
 
@@ -8,4 +8,4 @@ class Threads extends Component {
   }
 }
 
-export default Threads
+export default NotFoundPage

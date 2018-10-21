@@ -1,0 +1,5 @@
+export const APPS = 'apps'
+export const NAMESPACE = 'forum'
+export const BOARDS = 'boards'
+export const THREADS = 'threads'
+export const RESPONSES = 'responses'

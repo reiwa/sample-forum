@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import AppContent from './components/AppContent'
 import AppHeader from './containers/AppHeader'
-import Home from './pages/Home'
-import NotFound from './pages/NotFound'
-import Thread from './pages/Thread'
-import Threads from './pages/Threads'
+import HomePage from './pages/HomePage'
+import NotFoundPage from './pages/NotFoundPage'
+import ThreadPage from './pages/ThreadPage'
+import ThreadsPage from './pages/ThreadsPage'
 
 class AppRouter extends Component {
   render() {
@@ -15,14 +15,14 @@ class AppRouter extends Component {
           <Route path="/" component={AppHeader} />
           <AppContent>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/:boardId" component={Threads} />
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/:boardId" component={ThreadsPage} />
               <Route
                 exact
                 path="/:boardId/threads/:threadId"
-                component={Thread}
+                component={ThreadPage}
               />
-              <Route path="*" component={NotFound} />
+              <Route path="*" component={NotFoundPage} />
             </Switch>
           </AppContent>
         </Fragment>

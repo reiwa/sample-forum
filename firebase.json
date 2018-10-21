@@ -1,0 +1,14 @@
+{
+  "hosting": [
+    {
+      "target": "forum",
+      "public": "build",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

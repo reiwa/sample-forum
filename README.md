@@ -1,3 +1,14 @@
+# Forum
+
+## Deploy
+
+```
+$ yarn firebase target:apply hosting forum uxrlemvyuqjw
+$ yarn firebase deploy --only hosting
+```
+
+# Create React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

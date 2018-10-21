@@ -7,7 +7,7 @@ const AppContent = ({ classes, children }) => (
 )
 
 const styles = createStyles({
-  root: { margin: 'auto', maxWidth: 1280 }
+  root: { margin: 'auto', padding: 16, maxWidth: 1280 }
 })
 
 export default withStyles(styles)(AppContent)

@@ -1,5 +1,6 @@
 import Button from '@material-ui/core/Button/Button'
 import CardContent from '@material-ui/core/CardContent/CardContent'
+import createStyles from '@material-ui/core/styles/createStyles'
 import withStyles from '@material-ui/core/styles/withStyles'
 import TextField from '@material-ui/core/TextField/TextField'
 import Typography from '@material-ui/core/Typography/Typography'
@@ -106,8 +107,8 @@ class FormCreateResponse extends Component {
   }
 }
 
-const styles = {
+const styles = createStyles({
   formItem: { paddingTop: 16, textAlign: 'right' }
-}
+})
 
 export default withStyles(styles)(FormCreateResponse)

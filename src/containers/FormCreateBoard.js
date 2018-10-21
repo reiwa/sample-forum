@@ -1,8 +1,10 @@
 import Button from '@material-ui/core/Button/Button'
+import CardContent from '@material-ui/core/CardContent/CardContent'
+import createStyles from '@material-ui/core/styles/createStyles'
 import withStyles from '@material-ui/core/styles/withStyles'
 import TextField from '@material-ui/core/TextField/TextField'
 import Typography from '@material-ui/core/Typography/Typography'
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { createBoard } from '../functions/createBoard'
 
 class FormCreateBoard extends Component {
@@ -19,7 +21,7 @@ class FormCreateBoard extends Component {
     const { boardDescription, boardTitle, inProgress } = this.state
 
     return (
-      <Fragment>
+      <CardContent>
         <Typography variant={'h5'}>New Board</Typography>
         <form onSubmit={this.onSubmit}>
           <div className={classes.formItem}>
@@ -55,7 +57,7 @@ class FormCreateBoard extends Component {
             </Button>
           </div>
         </form>
-      </Fragment>
+      </CardContent>
     )
   }
 
@@ -99,8 +101,8 @@ class FormCreateBoard extends Component {
   }
 }
 
-const styles = {
+const styles = createStyles({
   formItem: { paddingTop: 16, textAlign: 'right' }
-}
+})
 
 export default withStyles(styles)(FormCreateBoard)

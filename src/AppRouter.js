@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import AppContent from './components/AppContent'
-import AppHeader from './containers/AppHeader'
+import AppHeader from './components/AppHeader'
 import HomePage from './pages/HomePage'
 import NotFoundPage from './pages/NotFoundPage'
 import ThreadPage from './pages/ThreadPage'

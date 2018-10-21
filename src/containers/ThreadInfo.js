@@ -1,4 +1,3 @@
-import Card from '@material-ui/core/Card/Card'
 import CardContent from '@material-ui/core/CardContent/CardContent'
 import createStyles from '@material-ui/core/styles/createStyles'
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -9,7 +8,7 @@ import { docData } from 'rxfire/firestore'
 import { APPS, NAMESPACE, THREADS } from '../constants/collection'
 import { updated } from '../helpers/updated'
 
-class ThreadInfoCard extends Component {
+class ThreadInfo extends Component {
   isUnmounted = false
   subscription = null
 
@@ -22,24 +21,22 @@ class ThreadInfoCard extends Component {
     if (!thread) return null
 
     return (
-      <Card>
-        <CardContent>
-          <Typography variant={'h6'} gutterBottom>
-            {thread.title}
-          </Typography>
-          <Typography variant={'body2'} gutterBottom>
-            {thread.description}
-          </Typography>
-          <Typography className={classes.date} gutterBottom>
-            <span className={classes.count}>
-              {thread.responseCount} Responses
-            </span>
-          </Typography>
-          <Typography className={classes.date}>
-            {updated(thread.updatedAt)}
-          </Typography>
-        </CardContent>
-      </Card>
+      <CardContent>
+        <Typography variant={'h6'} gutterBottom>
+          {thread.title}
+        </Typography>
+        <Typography variant={'body2'} gutterBottom>
+          {thread.description}
+        </Typography>
+        <Typography className={classes.date} gutterBottom>
+          <span className={classes.count}>
+            {thread.responseCount} Responses
+          </span>
+        </Typography>
+        <Typography className={classes.date}>
+          {updated(thread.updatedAt)}
+        </Typography>
+      </CardContent>
     )
   }
 
@@ -71,4 +68,4 @@ const styles = createStyles({
   count: { marginRight: 8 }
 })
 
-export default withStyles(styles)(ThreadInfoCard)
+export default withStyles(styles)(ThreadInfo)

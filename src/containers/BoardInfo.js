@@ -1,4 +1,3 @@
-import Card from '@material-ui/core/Card/Card'
 import CardActionArea from '@material-ui/core/CardActionArea/CardActionArea'
 import CardContent from '@material-ui/core/CardContent/CardContent'
 import createStyles from '@material-ui/core/styles/createStyles'
@@ -11,7 +10,7 @@ import { docData } from 'rxfire/firestore'
 import { APPS, BOARDS, NAMESPACE } from '../constants/collection'
 import { updated } from '../helpers/updated'
 
-class BoardInfoCard extends Component {
+class BoardInfo extends Component {
   isUnmounted = false
   subscription = null
 
@@ -25,29 +24,25 @@ class BoardInfoCard extends Component {
 
     return (
       <Link to={`/${boardId}`}>
-        <Card>
-          <CardActionArea>
-            <CardContent>
-              <Typography variant={'h6'} gutterBottom>
-                {board.title}
-              </Typography>
-              <Typography variant={'body2'} gutterBottom>
-                {board.description}
-              </Typography>
-              <Typography className={classes.date} gutterBottom>
-                <span className={classes.count}>
-                  {board.threadCount} Threads
-                </span>
-                <span className={classes.count}>
-                  {board.responseCount} Responses
-                </span>
-              </Typography>
-              <Typography className={classes.date}>
-                {updated(board.updatedAt)}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+        <CardActionArea>
+          <CardContent>
+            <Typography variant={'h6'} gutterBottom>
+              {board.title}
+            </Typography>
+            <Typography variant={'body2'} gutterBottom>
+              {board.description}
+            </Typography>
+            <Typography className={classes.date} gutterBottom>
+              <span className={classes.count}>{board.threadCount} Threads</span>
+              <span className={classes.count}>
+                {board.responseCount} Responses
+              </span>
+            </Typography>
+            <Typography className={classes.date}>
+              {updated(board.updatedAt)}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
       </Link>
     )
   }
@@ -80,4 +75,4 @@ const styles = createStyles({
   count: { marginRight: 8 }
 })
 
-export default withStyles(styles)(BoardInfoCard)
+export default withStyles(styles)(BoardInfo)

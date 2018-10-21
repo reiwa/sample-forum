@@ -1,13 +1,13 @@
 import Button from '@material-ui/core/Button/Button'
-import Card from '@material-ui/core/Card/Card'
 import CardContent from '@material-ui/core/CardContent/CardContent'
+import createStyles from '@material-ui/core/styles/createStyles'
 import withStyles from '@material-ui/core/styles/withStyles'
 import TextField from '@material-ui/core/TextField/TextField'
 import Typography from '@material-ui/core/Typography/Typography'
 import React, { Component } from 'react'
 import { createThread } from '../functions/createThread'
 
-class FormCreateThreadCard extends Component {
+class FormCreateThread extends Component {
   isUnmounted = false
 
   state = {
@@ -27,57 +27,55 @@ class FormCreateThreadCard extends Component {
     } = this.state
 
     return (
-      <Card>
-        <CardContent>
-          <Typography variant={'h5'}>New Thread</Typography>
-          <form onSubmit={this.onSubmit}>
+      <CardContent>
+        <Typography variant={'h5'}>New Thread</Typography>
+        <form onSubmit={this.onSubmit}>
+          <div className={classes.formItem}>
+            <TextField
+              onChange={this.onChangeThreadTitle}
+              value={threadTitle}
+              fullWidth
+              variant={'outlined'}
+              placeholder={'Title'}
+              disabled={inProgress}
+            />
+          </div>
+          {threadTitle && (
             <div className={classes.formItem}>
               <TextField
-                onChange={this.onChangeThreadTitle}
-                value={threadTitle}
+                onChange={this.onChangeThreadDescription}
+                value={threadDescription}
                 fullWidth
                 variant={'outlined'}
-                placeholder={'Title'}
+                placeholder={'Description'}
                 disabled={inProgress}
               />
             </div>
-            {threadTitle && (
-              <div className={classes.formItem}>
-                <TextField
-                  onChange={this.onChangeThreadDescription}
-                  value={threadDescription}
-                  fullWidth
-                  variant={'outlined'}
-                  placeholder={'Description'}
-                  disabled={inProgress}
-                />
-              </div>
-            )}
-            {threadTitle && (
-              <div className={classes.formItem}>
-                <TextField
-                  onChange={this.onChangeThreadDisplayName}
-                  value={threadDisplayName}
-                  fullWidth
-                  variant={'outlined'}
-                  placeholder={'Display Name (Optional)'}
-                  disabled={inProgress}
-                />
-              </div>
-            )}
+          )}
+          {threadTitle && (
             <div className={classes.formItem}>
-              <Button
-                onClick={this.onSubmit}
-                variant={'contained'}
-                color={'primary'}
-                disabled={inProgress || !threadTitle || !threadDescription}
-              >
-                create
-              </Button>
+              <TextField
+                onChange={this.onChangeThreadDisplayName}
+                value={threadDisplayName}
+                fullWidth
+                variant={'outlined'}
+                placeholder={'Display Name (Optional)'}
+                disabled={inProgress}
+              />
             </div>
-          </form>
-        </CardContent>
-      </Card>
+          )}
+          <div className={classes.formItem}>
+            <Button
+              onClick={this.onSubmit}
+              variant={'contained'}
+              color={'primary'}
+              disabled={inProgress || !threadTitle || !threadDescription}
+            >
+              create
+            </Button>
+          </div>
+        </form>
+      </CardContent>
     )
   }
 
@@ -139,8 +137,8 @@ class FormCreateThreadCard extends Component {
   }
 }
 
-const styles = {
+const styles = createStyles({
   formItem: { paddingTop: 16, textAlign: 'right' }
-}
+})
 
-export default withStyles(styles)(FormCreateThreadCard)
+export default withStyles(styles)(FormCreateThread)

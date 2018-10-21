@@ -1,5 +1,4 @@
 import Card from '@material-ui/core/Card/Card'
-import CardContent from '@material-ui/core/CardContent/CardContent'
 import Grid from '@material-ui/core/Grid/Grid'
 import { firestore } from 'firebase/app'
 import React, { Component } from 'react'
@@ -13,9 +12,7 @@ class HomePage extends Component {
       <Grid container spacing={16}>
         <Grid item xs={12} md={4}>
           <Card>
-            <CardContent>
-              <FormCreateBoard />
-            </CardContent>
+            <FormCreateBoard />
           </Card>
         </Grid>
         <Grid item xs={12} md={8}>

@@ -4,10 +4,10 @@ import { firestore } from 'firebase/app'
 import React, { Component } from 'react'
 import { APPS, NAMESPACE, RESPONSES, THREADS } from '../constants/collection'
 import { ASC } from '../constants/order'
-import BoardInfoCard from '../containers/BoardInfoCard'
+import BoardInfo from '../containers/BoardInfo'
 import FormCreateResponse from '../containers/FormCreateResponse'
 import Responses from '../containers/Responses'
-import ThreadInfoCard from '../containers/ThreadInfoCard'
+import ThreadInfo from '../containers/ThreadInfo'
 
 class ThreadPage extends Component {
   render() {
@@ -18,13 +18,17 @@ class ThreadPage extends Component {
         <Grid item xs={12} md={4}>
           <Grid container spacing={16}>
             <Grid item xs={12}>
-              <BoardInfoCard boardId={match.params.boardId} />
+              <Card>
+                <BoardInfo boardId={match.params.boardId} />
+              </Card>
             </Grid>
             <Grid item xs={12}>
-              <ThreadInfoCard
-                boardId={match.params.boardId}
-                threadId={match.params.threadId}
-              />
+              <Card>
+                <ThreadInfo
+                  boardId={match.params.boardId}
+                  threadId={match.params.threadId}
+                />
+              </Card>
             </Grid>
           </Grid>
         </Grid>
